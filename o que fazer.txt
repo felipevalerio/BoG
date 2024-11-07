@@ -1,0 +1,18 @@
+
+### 1. Pré-processamento de Texto
+Antes de usar o texto como entrada para o modelo, precisamos prepará-lo adequadamente.
+
+#### a. Tokenização
+- Divida o texto em palavras (tokens). Por exemplo, a frase "Machine learning é interessante!" se transforma em ["Machine", "learning", "é", "interessante"].
+
+#### b. Remoção de Stopwords
+- Elimine palavras comuns e sem significado (como "e", "de", "o") que não contribuem para a classificação.
+
+#### c. Normalização
+- Converta todas as palavras para minúsculas e remova caracteres especiais e pontuações.
+
+#### d. Representação de Características
+- Uma abordagem comum é usar a **Bag-of-Words** (BoW), que cria um vetor onde cada elemento representa a frequência de uma palavra no texto.
+- Outra opção é usar o **TF-IDF** (Term Frequency-Inverse Document Frequency), que pondera palavras com base em sua frequência e importância.
+
+#### Ler sobre e depois implementar o algoritmo de Naive Bayes
