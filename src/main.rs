@@ -1,31 +1,23 @@
-use std::fmt;
 use std::fs::File;
 use std::io::{self, BufRead};
 
 
 struct Token {
-    word: String
+    word: Vec<String>
 }
 
 impl Token {
     
     fn new() -> Token {
-        Token { word: String::new() }
+        Token { word: Vec::new() }
     }
 
     fn tokenizer(&mut self, valores: &Vec<String>) {
 
         for valor in valores {
             
-            self.word = valor.split_whitespace().map(String::from).collect();
+            self.word.extend(valor.split_whitespace().map(String::from));
         }
-    }
-}
-
-impl fmt::Display for Token {
-
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f,"Token {{ word: '{}' }}", self.word)
     }
 }
 
@@ -63,7 +55,9 @@ fn main() -> io::Result<()> {
     // print_specific_column(&valores);
     token.tokenizer(&valores);
 
-    println!("{}", token);
+    for words in token.word {
+        println!("{}", words);
+    }
 
     Ok(())
 }
