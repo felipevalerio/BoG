@@ -16,7 +16,9 @@ impl Token {
 
         for valor in valores {
             
-            self.word.extend(valor.split_whitespace().map(String::from));
+            let clean_value = valor.replace("\"", ""); // retira "" do texto
+
+            self.word.extend(clean_value.split_whitespace().map(String::from)); // split do texto nos espaços em branco
         }
     }
 }
@@ -41,6 +43,7 @@ fn main() -> io::Result<()> {
     let file = File::open("C:/Users/Pichau/Documents/Rust/naive_bayes/src/articles.csv")?;
     let reader = io::BufReader::new(file);
 
+    
     for line in reader.lines() {
 
         let linha = line?;
