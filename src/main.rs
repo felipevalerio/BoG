@@ -16,7 +16,20 @@ impl Token {
 
         for valor in valores {
             
-            let clean_value = valor.replace("\"", ""); // retira "" do texto
+            let clean_value = valor
+                                        .replace("\'", "") //retira ' do texto
+                                        .replace("\"", "") // retira "" do texto
+                                        .replace("‘", "")
+                                        .replace("!", "")
+                                        .replace("?", "")
+                                        .replace("(", "")
+                                        .replace(")", "")
+                                        .replace(":", "")
+                                        .replace(";", "")
+                                        .replace("’", "")
+                                        .replace("--", "")
+                                        .replace(".", "");
+
 
             self.word.extend(clean_value.split_whitespace().map(String::from)); // split do texto nos espaços em branco
         }
@@ -25,7 +38,7 @@ impl Token {
 
 
 // printa as linhas de uma coluna específica
-fn print_specific_column(valores: &Vec<String>) {
+fn print_specific_column(valores: &Vec<String>) {                       
 
     for valor in valores {
         println!("{}", valor);
