@@ -17,8 +17,8 @@ impl Token {
         for valor in valores {
             
             let clean_value = valor
-                                        .replace("\'", "") //retira ' do texto
-                                        .replace("\"", "") // retira "" do texto
+                                        .replace("\'", "") // => pensar em um jeito melhor de fazer isso (pelo amor de Deus)
+                                        .replace("\"", "")
                                         .replace("‘", "")
                                         .replace("!", "")
                                         .replace("?", "")
@@ -28,8 +28,9 @@ impl Token {
                                         .replace(";", "")
                                         .replace("’", "")
                                         .replace("--", "")
-                                        .replace(".", "");
-
+                                        .replace("&", "")
+                                        .replace(".", "")
+                                        .to_lowercase();
 
             self.word.extend(clean_value.split_whitespace().map(String::from)); // split do texto nos espaços em branco
         }
