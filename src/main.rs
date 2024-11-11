@@ -61,7 +61,7 @@ fn main() -> io::Result<()> {
     // carrega o arquivo de stopwords
     let stopwords_list = stopwords::load_stopwords_file().unwrap();
     
-
+    // adiciona o conteúdo do arquivo csv no vetor valores Vec<String>
     for line in reader.lines() {
 
         let linha = line?;
@@ -74,6 +74,9 @@ fn main() -> io::Result<()> {
     }
 
     // print_specific_column(&valores);
+    // realiza a tokenização do conteúdo do vetor valores
+    // remove diversos símbolos e pontuações
+    // e também realiza a quebra de texto quando encontrar espaços em branco
     token.tokenizer(&valores);
 
     for words in token.word.clone() { //clona token.word apenas para iterá-lo e não move-lo
