@@ -1,6 +1,7 @@
 use std::fs::File;
 use std::io::{self, BufRead};
 
+mod stopwords;
 
 struct Token {
     word: Vec<String>
@@ -57,6 +58,9 @@ fn main() -> io::Result<()> {
     let file = File::open("C:/Users/Pichau/Documents/Rust/naive_bayes/src/articles.csv")?;
     let reader = io::BufReader::new(file);
 
+    // carrega o arquivo de stopwords
+    let stopwords_list = stopwords::load_stopwords_file();
+    
     
     for line in reader.lines() {
 
