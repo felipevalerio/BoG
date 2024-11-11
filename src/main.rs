@@ -59,9 +59,9 @@ fn main() -> io::Result<()> {
     let reader = io::BufReader::new(file);
 
     // carrega o arquivo de stopwords
-    let stopwords_list = stopwords::load_stopwords_file();
+    let stopwords_list = stopwords::load_stopwords_file().unwrap();
     
-    
+
     for line in reader.lines() {
 
         let linha = line?;
@@ -76,9 +76,11 @@ fn main() -> io::Result<()> {
     // print_specific_column(&valores);
     token.tokenizer(&valores);
 
-    for words in token.word {
+    for words in token.word.clone() { //clona token.word apenas para iterá-lo e não move-lo
         println!("{}", words);
     }
+
+    stopwords::remove_stopwords(stopwords_list, token);
 
     Ok(())
 }

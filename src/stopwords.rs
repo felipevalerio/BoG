@@ -1,6 +1,8 @@
 use std::fs::File;
 use std::io::{self, BufRead};
 
+use crate::Token;
+
 
 pub fn load_stopwords_file() -> io::Result<Vec<String>>{
 
@@ -18,5 +20,7 @@ pub fn load_stopwords_file() -> io::Result<Vec<String>>{
 }
 
 
-fn remove_stopwords() {
+pub fn remove_stopwords(stopwords_list: Vec<String>, token: Token) {
+
+	
 }
