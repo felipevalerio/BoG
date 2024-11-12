@@ -82,7 +82,6 @@ fn main() -> io::Result<()> {
 
     stopwords::remove_stopwords(stopwords_list, &mut token);
 
-
     for words in token.word.clone() { //clona token.word apenas para iterá-lo e não move-lo
         println!("{}", words);
     }
