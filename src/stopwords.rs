@@ -22,5 +22,7 @@ pub fn load_stopwords_file() -> io::Result<Vec<String>>{
 
 pub fn remove_stopwords(stopwords_list: Vec<String>, token: &mut Token) {
 
-	token.word.retain(|word| !stopwords_list.contains(word));
+	token.word.retain(|word| !stopwords_list.contains(word) 
+					&& !word.chars().all(|c| c.is_numeric())); // remove as palavras que estão presentes em stopwords_list
+																	// e também caracteres numéricos
 }

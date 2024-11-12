@@ -31,6 +31,7 @@ impl Token {
                                         .replace("--", "")
                                         .replace("&", "")
                                         .replace(".", "")
+                                        .replace("#", "")
                                         .to_lowercase();
 
             self.word.extend(clean_value.split_whitespace().map(String::from)); // split do texto nos espaços em branco
@@ -86,6 +87,6 @@ fn main() -> io::Result<()> {
         println!("{}", words);
     }
 
-    
+
     Ok(())
 }
