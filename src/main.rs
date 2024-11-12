@@ -79,11 +79,13 @@ fn main() -> io::Result<()> {
     // e também realiza a quebra de texto quando encontrar espaços em branco
     token.tokenizer(&valores);
 
+    stopwords::remove_stopwords(stopwords_list, &mut token);
+
+
     for words in token.word.clone() { //clona token.word apenas para iterá-lo e não move-lo
         println!("{}", words);
     }
 
-    stopwords::remove_stopwords(stopwords_list, token);
-
+    
     Ok(())
 }
