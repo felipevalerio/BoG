@@ -41,12 +41,12 @@ impl Token {
 
 
 // printa as linhas de uma coluna específica
-fn print_specific_column(valores: &Vec<String>) {                       
+// fn print_specific_column(valores: &Vec<String>) {                       
 
-    for valor in valores {
-        println!("{}", valor);
-    }
-}
+//     for valor in valores {
+//         println!("{}", valor);
+//     }
+// }
 
 
 fn main() -> io::Result<()> {
